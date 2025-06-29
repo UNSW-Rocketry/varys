@@ -6,7 +6,7 @@ import logging
 
 logging.basicConfig(level=logging.WARNING)
 
-def parse_data_line_to_json(line: str) -> dict[str, any] | None:
+def parse_data_line_to_dict(line: str) -> dict[str, any] | None:
     """
     This function serves the primary purpose of converting data from the Featherweight
     GPS Tracker into a human-readable format. Please note it only converts one
@@ -68,7 +68,7 @@ def parse_data_line_to_json(line: str) -> dict[str, any] | None:
             fields["sats_ge32_dbhz"] = int(tokens[i + 5])
             fields["sats_ge40_dbhz"] = int(tokens[i + 6])
 
-    missing = [k for k, v in fields.items() if v is None]
+    missing = [key for key, value in fields.items() if value is None]
     
     if missing:
         logging.warning(
@@ -81,4 +81,4 @@ def parse_data_line_to_json(line: str) -> dict[str, any] | None:
         
 with open("log_gps.txt", "r") as file:
     for line in file:
-        print(json.dumps(parse_data_line_to_json(line), indent=4))
+        print(json.dumps(parse_data_line_to_dict(line), indent=4))
