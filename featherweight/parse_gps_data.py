@@ -79,6 +79,9 @@ def parse_data_line_to_dict(line: str) -> dict[str, any] | None:
         
     return fields
         
-with open("log_gps.txt", "r") as file:
-    for line in file:
-        print(json.dumps(parse_data_line_to_dict(line), indent=4))
+with open("gps_output.jsonl", "w") as outfile:
+    for line in open("log_gps.txt"):
+        rec = parse_data_line_to_dict(line)
+        if rec:
+            json.dump(rec, outfile)
+            outfile.write("\n")
