@@ -7,3 +7,9 @@ services:
      - '9000:9000'
      - '8812:8812'
      - '9009:9009'
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
