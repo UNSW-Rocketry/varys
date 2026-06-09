@@ -1,3 +1,4 @@
+{"timestamp":"2026-03-03T03:30:00Z","tracker_id":"test","lat":-33.9173,"lon":151.2313,"alt_m":120.5,"sats":9}
 {"timestamp":"2026-04-14T07:33:41.727Z","tracker_id":"UNSWRT-T2","altitude":121.0,"latitude":-33.4294844568,"longitude":150.96568,"vel_horizontal_fps":17.0,"vel_vertical_fps":27.0,"heading_deg":287.0,"fix":3,"sats_total":14,"sats_ge24_dbhz":10,"sats_ge32_dbhz":5,"sats_ge40_dbhz":2}
 {"timestamp":"2026-04-14T07:33:41.832Z","tracker_id":"UNSWRT-T2","altitude":123.0,"latitude":-33.4294889416,"longitude":150.96568,"vel_horizontal_fps":19.0,"vel_vertical_fps":-4.0,"heading_deg":353.0,"fix":3,"sats_total":14,"sats_ge24_dbhz":10,"sats_ge32_dbhz":5,"sats_ge40_dbhz":2}
 {"timestamp":"2026-04-14T07:33:41.938Z","tracker_id":"UNSWRT-T2","altitude":124.0,"latitude":-33.4294860993,"longitude":150.96568,"vel_horizontal_fps":12.0,"vel_vertical_fps":40.0,"heading_deg":93.0,"fix":3,"sats_total":14,"sats_ge24_dbhz":10,"sats_ge32_dbhz":5,"sats_ge40_dbhz":2}
