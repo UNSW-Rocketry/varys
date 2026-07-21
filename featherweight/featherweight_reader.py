@@ -1,13 +1,17 @@
-# This script reads feather weight GPS data from a serial port, filters for lines matching 
-# the specific pattern of featherweight data, and writes the filtered data to a log file. It also prints 
-# the matched lines to the console. The script handles serial port exceptions 
+# This script reads feather weight GPS data from a serial port, filters for lines matching
+# the specific pattern of featherweight data, and writes the filtered data to a log file. It also prints
+# the matched lines to the console. The script handles serial port exceptions
 # and allows for graceful termination with a keyboard interrupt.
 
+import os
 import serial
 import re
 import sys
 
-PORT_NAME = 'COM4'
+PORT_NAME = os.getenv(
+    "FEATHERWEIGHT_PORT",
+    "/dev/ttyUSB0",
+)
 ser = None
 file = "raw_gps_data.log"
 
@@ -33,11 +37,11 @@ try:
                 output.flush()
             # print(line_str)
             # output.write(line_str)
-                
+
 except KeyboardInterrupt:
     print("\nStopping data read", file=sys.stderr)
 
-finally: 
+finally:
     if ser.is_open:
         ser.close()
     if output:

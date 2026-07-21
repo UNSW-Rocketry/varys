@@ -75,7 +75,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  alt_m - lag(alt_m) OVER (ORDER BY timestamp) AS vertical_delta\r\nFROM gps_data\r\nORDER BY timestamp DESC\r\nLIMIT 1;",
+          "rawSql": "SELECT\r\n  altitude - lag(altitude) OVER (ORDER BY timestamp) AS vertical_delta\r\nFROM gps_data\r\nORDER BY timestamp DESC\r\nLIMIT 1;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -191,7 +191,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  alt_m\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY 1;",
+          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  altitude\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY 1;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -316,8 +316,8 @@
         "view": {
           "allLayers": true,
           "id": "zero",
-          "lat": 0,
-          "lon": 0,
+          "latitude": 0,
+          "longitude": 0,
           "noRepeat": false,
           "zoom": 1
         }
@@ -329,7 +329,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  lat,\r\n  lon\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY 1;",
+          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  latitude,\r\n  longitude\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY 1;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -493,7 +493,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  max(alt_m) AS apogee\r\nFROM gps_data;",
+          "rawSql": "SELECT\r\n  max(altitude) AS apogee\r\nFROM gps_data;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -605,7 +605,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  date_trunc('second', timestamp) AS \"time\",\r\n  max(alt_m) - min(alt_m) AS altitude_delta\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nGROUP BY 1\r\nORDER BY 1;",
+          "rawSql": "SELECT\r\n  date_trunc('second', timestamp) AS \"time\",\r\n  max(altitude) - min(altitude) AS altitude_delta\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nGROUP BY 1\r\nORDER BY 1;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -717,7 +717,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  sats\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY 1;",
+          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  sats_total\r\nFROM gps_data\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY 1;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -804,7 +804,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  alt_m\r\nFROM gps_data\r\nORDER BY timestamp DESC\r\nLIMIT 1;",
+          "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  altitude\r\nFROM gps_data\r\nORDER BY timestamp DESC\r\nLIMIT 1;",
           "refId": "A",
           "sql": {
             "columns": [
