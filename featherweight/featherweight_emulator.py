@@ -41,6 +41,6 @@ for _ in range(1000):
     with open(file, "a") as f:
         f.write(line + "\n")
 
-    print(line)
+    print(line, flush=True)
 
     time.sleep(0.1)
