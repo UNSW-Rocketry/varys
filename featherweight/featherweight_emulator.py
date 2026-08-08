@@ -10,7 +10,7 @@ lat = -33.4294884592
 lon = 150.96568
 alt = 120
 
-for _ in range(1000):
+while True:
 
     # simulate rocket movement
     alt += random.uniform(0.5, 2)

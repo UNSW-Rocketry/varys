@@ -4,22 +4,36 @@ services:
     container_name: questdb
     restart: unless-stopped
     ports:
-     - '9000:9000'
-     - '8812:8812'
-     - '9009:9009'
+      - "9000:9000"
+      - "8812:8812"
+      - "9009:9009"
     volumes:
       - questdb-storage:/var/lib/questdb
+
+  telemetry:
+    build:
+      context: ./featherweight
+    container_name: varys-telemetry
+    restart: unless-stopped
+    environment:
+      QUESTDB_HOST: questdb
+      QUESTDB_PORT: "9009"
+      TELEMETRY_SOURCE: emulator
+    depends_on:
+      - questdb
+
   grafana:
     image: grafana/grafana-enterprise
     container_name: grafana
     restart: unless-stopped
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - grafana-storage:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
     depends_on:
       - questdb
+
 volumes:
   questdb-storage:
   grafana-storage:

@@ -1,10 +1,11 @@
+import os
 import json
 from datetime import datetime, timezone
 from questdb.ingress import Sender, Protocol, TimestampNanos
 import time
 
-HOST = "localhost"
-PORT = 9009
+HOST = os.getenv("QUESTDB_HOST", "questdb")
+PORT = int(os.getenv("QUESTDB_PORT", "9009"))
 file = "parsed_gps_data.jsonl"
 
 def to_nanos(ts: str) -> int:
@@ -43,7 +44,7 @@ def main():
                 columns=rec,
                 at=TimestampNanos(ts_nanos)
             )
-        sender.flush()
+            sender.flush()
 
 if __name__ == "__main__":
     main()
